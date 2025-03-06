@@ -4,12 +4,12 @@ import NavButton from "./NavButton";
 
 const Navbar = ({ brand, text }: { brand?: React.ReactNode, text?: string }) => {
     return (
-        <nav className="p-4 border flex items-center justify-between">
-            <div className="flex items-center gap-2">
-                <Button variant="ghost" asChild className="p-0 w-[3rem] h-[3rem]">
-                    {brand ? brand : <FlameIcon size={48} />}
+        <nav className="p-2 border border-neutral-100 shadow flex items-center justify-between w-full rounded">
+            <div className="flex items-center">
+                <Button variant="ghost">
+                    {brand ? brand : <FlameIcon />}
                 </Button>
-                {text && <h3 className="font-bold text-2xl">{text}</h3>}
+                {text && <h4 className="font-bold text-xl">{text}</h4>}
             </div>
             <div className="flex items-center gap-8">
                 <NavButton icon={<BellIcon />} />
@@ -19,4 +19,4 @@ const Navbar = ({ brand, text }: { brand?: React.ReactNode, text?: string }) => 
     )
 }
 
-export default Navbar
+export default Navbar;

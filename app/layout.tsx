@@ -27,9 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body translate="no"
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased p-4`}
       >
-        <Navbar brand={<FlameIcon />} text="Shahp"></Navbar>
+        <Navbar brand={<FlameIcon />} text="shahp"></Navbar>
         {children}
       </body>
     </html>
