@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Comfortaa } from 'next/font/google'
 import "./globals.css";
-import Navigation from "./components/Navigation";
-import { FlameIcon } from "lucide-react";
-import NavMenu from "./components/NavMenu";
+import Navigation from "../components/Navigation";
 
 const comfortaa = Comfortaa({
   weight: '400',
