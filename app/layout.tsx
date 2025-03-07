@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import { FlameIcon } from "lucide-react";
+import NavMenu from "./components/NavMenu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,9 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body translate="no"
-        className={`${geistSans.variable} ${geistMono.variable} antialiased p-4`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar brand={<FlameIcon />} text="shahp"></Navbar>
+        {/* <Navbar brand={<FlameIcon />} text="shahp"></Navbar> */}
+        <NavMenu />
         {children}
       </body>
     </html>
