@@ -1,19 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Comfortaa } from 'next/font/google'
 import "./globals.css";
-import Navbar from "./components/Navbar";
+import Navigation from "./components/Navigation";
 import { FlameIcon } from "lucide-react";
 import NavMenu from "./components/NavMenu";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const comfortaa = Comfortaa({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,13 +20,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body translate="no"
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${comfortaa.className} antialiased`}
       >
-        {/* <Navbar brand={<FlameIcon />} text="shahp"></Navbar> */}
-        <NavMenu />
+        <Navigation />
         {children}
       </body>
     </html>

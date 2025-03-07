@@ -1,21 +1,22 @@
-import { Button } from "@/components/ui/button"
-import { BellIcon, FlameIcon, UserIcon } from "lucide-react"
-import NavButton from "./NavButton";
+"use client";
 
-const Navbar = ({ brand, text }: { brand?: React.ReactNode, text?: string }) => {
+import { Button } from "@/components/ui/button";
+import { FlameKindlingIcon } from "lucide-react";
+
+const Navbar = ({ children, brand = <FlameKindlingIcon className="size-8" />, title = "" }: { children?: React.ReactNode, brand?: React.ReactNode, title?: string }) => {
     return (
-        <nav className="p-2 border border-neutral-100 shadow flex items-center justify-between w-full rounded">
-            <div className="flex items-center">
-                <Button variant="ghost">
-                    {brand ? brand : <FlameIcon />}
-                </Button>
-                {text && <h4 className="font-bold text-xl">{text}</h4>}
-            </div>
-            <div className="flex items-center gap-8">
-                <NavButton icon={<BellIcon />} />
-                <NavButton icon={<UserIcon />} />
-            </div>
-        </nav>
+        <>
+            <nav className="p-4 w-full h-[4rem] flex shadow items-center justify-between rounded relative">
+                <div className="flex items-center">
+                    <Button variant="ghost" className="!p-0">
+                        {brand}
+                    </Button>
+                    <h4 className="font-bold text-xl mt-1">{title}</h4>
+                </div>
+                {children}
+            </nav>
+        </>
+
     )
 }
 

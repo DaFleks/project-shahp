@@ -2,37 +2,34 @@
 
 import { Button } from "@/components/ui/button";
 import { XIcon } from "lucide-react";
-import Image from "next/image";
-import avatar from '../../public/snrub.png';
-import NavTile from "./NavTile";
+import { useState } from "react";
 
-const NavMenu = () => {
+const NavMenu = ({ children, title = "" }: { children?: React.ReactNode, title?: string }) => {
+    const [isActive, setIsActive] = useState(true);
+
+    const handleIsActive = () => {
+        setIsActive(false);
+    }
+
     return (
-        <nav className="w-full h-screen flex flex-col p-4 gap-8">
-            <div className="flex justify-between p-4 border">
-                <h4 className="font-bold text-xl">Alex Petropoulos</h4>
-                <Button variant="ghost">
-                    <XIcon />
-                </Button>
-            </div>
+        <>
+            {isActive &&
+                <nav className="w-full h-full fixed overflow-y-scroll left-0 top-0 z-20 bg-white">
 
-            <div className="">
-                <Image className="rounded-full aspect-[1/1] mx-auto w-1/3 mb-4" src={avatar} alt="" />
-                <h1 className="font-bold text-4xl text-center">Hi, Alex!</h1>
-            </div>
+                    {/* Title Bar */}
+                    <div className="p-4 w-full h-[4rem] max-h-[4rem] fixed z-50 flex justify-between items-center bg-white shadow">
+                        <h4 className="font-bold text-xl mt-1">{title}</h4>
+                        <Button variant="ghost" className="!p-0" onClick={handleIsActive}>
+                            <XIcon className="size-6" />
+                        </Button>
+                    </div>
+                    <div className="p-4 w-full h-[4rem] "></div>
 
-            <div className="grid grid-cols-2 gap-6 px-4 grow">
-                <NavTile text="View Profile" />
-                <NavTile text="Your Tickets" />
-                <NavTile text="Account Settings" />
-                <NavTile text="Dashboard Settings" />
-                <NavTile text="Help & Support" />
-                <NavTile text="Sign Out" />
-            </div>
-
-
-        </nav>
+                    {children}
+                </nav>
+            }
+        </>
     )
 }
 
-export default NavMenu
+export default NavMenu;
