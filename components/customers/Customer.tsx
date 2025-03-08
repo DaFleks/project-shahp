@@ -8,7 +8,7 @@ import CardImage from "../CardImage";
 const Customer = () => {
     return (
         <Card>
-            <CardImage className="rounded-full" imgClassName="rounded-full object-cover p-1" />
+            <CardImage className="rounded-full shadow-emerald-300 min-w-1/6" imgClassName="rounded-full object-cover p-1" />
             <CardContent className="text-sm">
                 <div className="space-y-1 mb-4">
                     <p>Alex Petropoulos</p>

@@ -6,9 +6,10 @@ import { cn } from "@/lib/utils";
 
 const UserMenuTile = ({ className = "", icon, children = <></> }: { className?: string, icon?: React.ReactNode, children?: React.ReactNode }) => {
     return (
-        <Button variant="ghost" className={cn(`w-full h-full shadow-2xl text-white aspect-square relative`, className)}>
+        <Button variant="ghost" className={cn(`w-full h-full shadow-2xl text-white aspect-square relative flex-col-hidden gap-4 !break-words`, className)}>
             {icon}
-            <p className="font-bold absolute bottom-0 left-0 m-3">{children}</p>
+            <span className="font-bold text-wrap">{children}</span>
+
         </Button >
     )
 }

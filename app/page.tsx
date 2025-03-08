@@ -30,13 +30,13 @@ export default function Home() {
         <Product />
         <Product />
       </CardList>
-      {/* <CardList>
+      <CardList>
         <Customer />
         <Customer />
         <Customer />
         <Customer />
         <Customer />
-      </CardList> */}
+      </CardList>
     </div >
 
   );
