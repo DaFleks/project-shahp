@@ -1,0 +1,11 @@
+📌 Main Sidebar Sections
+Dashboard 📊 (Overview of key stats: sales, orders, customers, trends)
+Orders 📦 (Manage all orders: pending, shipped, refunded, canceled)
+Products 🛍️ (View, add, edit inventory & track stock levels)
+Customers 👥 (Customer list, purchase history, engagement data)
+Analytics & Reports 📈 (Sales trends, product performance, traffic sources, etc.)
+Marketing & Promotions 🎯 (Discounts, ads, email campaigns, abandoned cart recovery)
+Reviews & Feedback ⭐ (Monitor product ratings & customer reviews)
+Customer Support 🛠️ (Tickets, FAQs, live chat responses)
+Settings ⚙️ (Store settings, payment methods, shipping options, user roles)
+Logout 🔒 (Secure exit button for admin users)

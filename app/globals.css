@@ -131,6 +131,19 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
+}
+
+.flex-col-scroll {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.flex-col-hidden {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
 }

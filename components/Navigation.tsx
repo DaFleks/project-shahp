@@ -1,22 +1,24 @@
-import { BellIcon, ShoppingBagIcon, UserIcon } from "lucide-react";
-import { HelpCircleIcon, LogOutIcon, ServerCogIcon, TicketIcon, UserCircle2Icon, UserRoundCogIcon, XIcon } from "lucide-react";
+import { BellIcon, ShoppingBagIcon, HelpCircleIcon, LogOutIcon, ServerCogIcon, TicketIcon, UserCircle2Icon, UserRoundCogIcon, MenuSquareIcon, MoonIcon, ChevronLeft } from "lucide-react";
+
 import Navbar from "./Navbar";
-import NavButton from "./NavButton";
+
 import NavButtonsWrapper from "./NavButtonsWrapper";
+import NavButton from "./NavButton";
+
 import NavMenu from "./NavMenu";
 import UserMenuAvatar from "./UserMenuAvatar";
 import UserMenuTileWrapper from "./UserMenuTileWrapper";
 import UserMenuTile from "./UserMenuTile";
 
-const Navigation = ({ brand, title }: { brand?: React.ReactNode, title?: string }) => {
+const Navigation = () => {
     return (
-        <Navbar brand={<ShoppingBagIcon className="size-8 mr-2" />} title="SHAHP">
+        <Navbar brand={<ChevronLeft className="size-8 mr-2" />} title="Products">
             <NavButtonsWrapper>
-                <NavButton icon={<BellIcon className="size-6" />} />
                 <NavButton icon={<UserCircle2Icon className="size-6" />} />
+                <NavButton icon={<MenuSquareIcon className="size-6" />} />
             </NavButtonsWrapper>
 
-            <NavMenu title="User Menu">
+            {/* <NavMenu title="User Menu">
                 <UserMenuAvatar />
                 <UserMenuTileWrapper>
                     <UserMenuTile className="bg-gradient-to-tr from-emerald-700/80 to-cyan-500/80" icon={<UserCircle2Icon className="size-18" />}>Your Profile</UserMenuTile>
@@ -26,9 +28,8 @@ const Navigation = ({ brand, title }: { brand?: React.ReactNode, title?: string 
                     <UserMenuTile className="bg-gradient-to-tr from-cyan-700/80 to-indigo-800/80" icon={<HelpCircleIcon className="size-18" />}>Help & Support</UserMenuTile>
                     <UserMenuTile className="bg-gradient-to-tr from-amber-700/80 to-rose-400/80" icon={<LogOutIcon className="size-18" />}>Sign Out</UserMenuTile>
                 </UserMenuTileWrapper>
-            </NavMenu>
+            </NavMenu> */}
         </Navbar>
-
     )
 }
 
