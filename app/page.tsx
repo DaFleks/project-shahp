@@ -4,8 +4,10 @@ import Image from "next/image";
 import ff7Cover from '../public/ff7.png';
 import { ChevronRightIcon, FilterIcon, SortAscIcon } from "lucide-react";
 import Product from "@/components/products/Product";
-import ProductList from "@/components/products/ProductList";
+import CardList from "@/components/CardList";
 import Pagination from "@/components/Pagination";
+import Customer from "@/components/customers/Customer";
+import FilterSortButtons from "@/components/FilterSortButtons";
 
 
 
@@ -18,19 +20,23 @@ export default function Home() {
       </form>
 
       <Pagination />
-      <div className="grid grid-cols-2 gap-4">
-        <Button className="font-bold"><FilterIcon />Filters</Button>
-        <Button className="font-bold"><SortAscIcon /> Sort</Button>
-      </div>
 
+      <FilterSortButtons />
 
-      <ProductList>
+      <CardList>
         <Product />
         <Product />
         <Product />
         <Product />
         <Product />
-      </ProductList>
+      </CardList>
+      {/* <CardList>
+        <Customer />
+        <Customer />
+        <Customer />
+        <Customer />
+        <Customer />
+      </CardList> */}
     </div >
 
   );
