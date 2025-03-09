@@ -43,8 +43,8 @@ export default function Home() {
 
 
   return (
-    <Container>
-      {/* <Heading type="h3">Today</Heading>
+    <Container className="overflow-y-scroll">
+      <Heading type="h3">Today</Heading>
       <CardList className="grid-cols-2 md:grid-cols-6 w-full">
         <SingleStat icon={<TrendingUpIcon className="size-12 text-emerald-300" />} value="$420,000" title="Sales" />
         <SingleStat icon={<TrendingUpIcon className="size-12 text-emerald-300" />} value="$420,000" title="Profit" />
@@ -59,9 +59,9 @@ export default function Home() {
         <OrderTypeDonutChart customerOrders={orderData.customerOrders} guestOrders={orderData.guestOrders} />
         <OverviewTable />
         <OrderStatusChart data={orderStatusData} />
-      </div> */}
+      </div>
 
-      <form>
+      {/* <form>
         <Input type="text" id="search" placeholder="Search products" className="py-6 border-none !text-xl shadow-sm bg-white"></Input>
       </form>
 
@@ -82,7 +82,7 @@ export default function Home() {
         <Customer />
         <Customer />
         <Customer />
-      </CardList>
+      </CardList> */}
     </Container>
 
   );

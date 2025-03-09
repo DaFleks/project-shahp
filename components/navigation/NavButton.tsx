@@ -2,10 +2,12 @@
 
 import { Button } from "@/components/ui/button";
 
-const NavButton = ({ icon }: { icon?: React.ReactNode }) => {
-    return (
-        <Button variant="ghost" className="cursor-pointer " size="icon">{icon}</Button>
-    )
+interface NavButtonProps {
+    icon?: React.ReactNode;
+    onClick?: () => void;
 }
+
+const NavButton = ({ icon, onClick }: NavButtonProps) => <Button variant="ghost" className="cursor-pointer" size="icon" onClick={onClick}>{icon}</Button>
+
 
 export default NavButton;

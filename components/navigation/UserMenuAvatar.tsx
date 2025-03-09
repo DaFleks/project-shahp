@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import avatar from '../public/snrub.png';
+import avatar from '../../public/snrub.png';
 import { Button } from "@/components/ui/button";
 import { PencilIcon } from "lucide-react";
 
