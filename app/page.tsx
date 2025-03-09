@@ -4,13 +4,13 @@ import Image from "next/image";
 import ff7Cover from '../public/ff7.png';
 import { ChevronRightIcon, CirclePowerIcon, DollarSignIcon, FilterIcon, SortAscIcon, TrendingDownIcon, TrendingUpDownIcon, TrendingUpIcon } from "lucide-react";
 import Product from "@/components/products/Product";
-import CardList from "@/components/CardList";
+import CardList from "@/components/card/CardList";
 import Pagination from "@/components/Pagination";
 import Customer from "@/components/customers/Customer";
 import FilterSortButtons from "@/components/FilterSortButtons";
 import Heading from "@/components/Heading";
-import Card from "@/components/Card";
-import CardContent from "@/components/CardContent";
+import Card from "@/components/card/Card";
+import CardContent from "@/components/card/CardContent";
 import SingleStat from "@/components/SingleStat";
 import WeeklyChart from "@/components/temp/WeeklyChart";
 import OrderTypeDonutChart from "@/components/temp/CustomerVSGuest";
@@ -44,7 +44,7 @@ export default function Home() {
 
   return (
     <Container>
-      <Heading type="h3">Today</Heading>
+      {/* <Heading type="h3">Today</Heading>
       <CardList className="grid-cols-2 md:grid-cols-6 w-full">
         <SingleStat icon={<TrendingUpIcon className="size-12 text-emerald-300" />} value="$420,000" title="Sales" />
         <SingleStat icon={<TrendingUpIcon className="size-12 text-emerald-300" />} value="$420,000" title="Profit" />
@@ -59,20 +59,9 @@ export default function Home() {
         <OrderTypeDonutChart customerOrders={orderData.customerOrders} guestOrders={orderData.guestOrders} />
         <OverviewTable />
         <OrderStatusChart data={orderStatusData} />
-      </div>
+      </div> */}
 
-
-
-
-
-
-
-
-
-
-
-
-      {/* <form>
+      <form>
         <Input type="text" id="search" placeholder="Search products" className="py-6 border-none !text-xl shadow-sm bg-white"></Input>
       </form>
 
@@ -93,7 +82,7 @@ export default function Home() {
         <Customer />
         <Customer />
         <Customer />
-      </CardList> */}
+      </CardList>
     </Container>
 
   );

@@ -1,9 +1,9 @@
 "use client";
 
-import Card from "../Card";
-import CardImage from "../CardImage";
-import CardAction from "../CardAction";
-import CardContent from "../CardContent";
+import Card from "../card/Card";
+import CardImage from "../card/CardImage";
+import CardAction from "../card/CardAction";
+import CardContent from "../card/CardContent";
 
 const Product = () => {
     return (

@@ -1,7 +1,7 @@
 "use client";
 
 import Image, { StaticImageData } from "next/image";
-import ff7Cover from '../public//ff7.png';
+import ff7Cover from '../../public/ff7.png';
 import { cn } from "@/lib/utils";
 
 

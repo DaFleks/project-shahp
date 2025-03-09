@@ -1,8 +1,8 @@
 "use client";
 
 import { FileQuestionIcon } from "lucide-react";
-import Card from "./Card";
-import CardContent from "./CardContent";
+import Card from "./card/Card";
+import CardContent from "./card/CardContent";
 import Heading from "./Heading";
 
 interface SingleStatProps {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Comfortaa } from 'next/font/google'
 import "./globals.css";
-import Navigation from "../components/Navigation";
+import Navigation from "../components/navigation/Navigation";
 
 const comfortaa = Comfortaa({
   weight: '400',

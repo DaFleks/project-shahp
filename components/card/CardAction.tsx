@@ -1,7 +1,8 @@
 "use client";
 
 import { ChevronRightIcon } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
+
 
 const CardAction = () => {
     return (
