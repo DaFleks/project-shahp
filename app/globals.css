@@ -136,15 +136,8 @@ body {
   height: 100%;
 }
 
-.flex-col-scroll {
+.flex-col {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-}
-
-.flex-col-hidden {
-  display: flex;
-  flex-direction: column;
-  overflow-y: hidden;
-  overflow-x: hidden;
 }

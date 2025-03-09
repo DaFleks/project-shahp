@@ -1,0 +1,58 @@
+📊 Sidebar Navigation Structure
+
+1. Overview
+	📌 Dashboard (General stats, quick insights, key metrics)
+
+2. Data Management
+	📦 Products
+	📑 Orders
+	👥 Customers
+	🛍️ Users (Admin, Staff, Roles & Permissions)
+
+3. Analytics
+	📈 Sales
+		Revenue Overview
+		Profit & Margins
+		Conversion Rate
+		Average Order Value (AOV)
+		Refunds & Returns
+	👤 Customer Analytics
+		New vs. Returning Customers
+		Customer Lifetime Value (CLV)
+		Customer Acquisition Cost (CAC)
+		Retention & Churn Rate
+		Demographics & Behavior
+	🏷 Product Analytics
+		Best-Sellers
+		Low Stock / Out of Stock
+		Most Viewed Products
+		Inventory Turnover
+		Discount Performance
+	📣 Marketing Analytics
+		Website Traffic & Sources
+		Ad Performance & Click-Through Rate (CTR)
+		Email Campaign Metrics
+		Social Media Engagement
+		Abandoned Cart Rate
+	🚚 Operational Analytics
+		Order Fulfillment Time
+		Shipping & Delivery Times
+		Payment Success & Failure Rates
+		Customer Support Metrics
+	📊 Financial Analytics
+		Net Profit & Margins
+		Revenue vs. Expenses
+		Cost of Goods Sold (COGS)
+		Taxes & Fees
+		Payment Method Performance
+
+4. Settings & Configuration
+	⚙️ Store Settings (Currency, Taxes, Payment Methods, Shipping)
+	🛠 System Settings (API Keys, Integrations, Logs)
+	🔑 Roles & Permissions (Admin, Staff Access Control)
+	🎨 Customization (Themes, Branding, Email Templates)
+
+5. Other
+	📜 Reports & Logs (Activity Log, Downloadable Reports, Audit Logs)
+	📞 Support & Help (FAQs, Contact Support, Documentation)
+	🚀 Performance Monitoring (Server Uptime, Page Speed, Database Health)

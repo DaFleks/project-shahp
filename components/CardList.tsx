@@ -1,7 +1,9 @@
-const ProductList = ({ children }: { children: React.ReactNode }) => {
+import { cn } from "@/lib/utils";
+
+const CardList = ({ children, className }: { children: React.ReactNode, className?: string }) => {
     return (
-        <div className="grid grid-cols-1 gap-4 grow overflow-y-scroll pb-4">{children}</div>
+        <div className={cn('grid grid-cols-1 gap-4', className)}>{children}</div>
     )
 }
 
-export default ProductList;
+export default CardList;
