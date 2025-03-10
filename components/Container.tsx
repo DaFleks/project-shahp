@@ -1,8 +1,20 @@
-import { cn } from "@/lib/utils";
 
-const Container = ({ children, className }: { children?: React.ReactNode, className?: string }) => {
+import { cn } from "@/lib/utils";
+import clsx from "clsx";
+import { JSX } from "react";
+
+interface ContainerProps {
+    children?: React.ReactNode;
+    className?: string;
+    as?: keyof JSX.IntrinsicElements;
+    style?: React.CSSProperties;
+    grow?: boolean;
+    scroll?: boolean;
+}
+
+const Container = ({ children, className, style, grow, scroll, as: Tag = "div" }: ContainerProps) => {
     return (
-        <div className={cn('p-4 grow space-y-4', className)}>{children}</div>
+        <Tag className={clsx(grow && "grow", scroll ? "overflow-y-scroll" : "overflow-y-hidden", 'p-4', className)} style={style}>{children}</Tag>
     )
 }
 

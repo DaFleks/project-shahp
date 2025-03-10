@@ -9,5 +9,4 @@ interface NavButtonProps {
 
 const NavButton = ({ icon, onClick }: NavButtonProps) => <Button variant="ghost" className="cursor-pointer" size="icon" onClick={onClick}>{icon}</Button>
 
-
 export default NavButton;
