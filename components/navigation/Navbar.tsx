@@ -20,7 +20,7 @@ import navMenuData from './NavMenuData';
 
 const Navbar = () => {
     const [userMenuActive, setUserMenuActive] = useState(false);
-    const [dashboardMenuActive, setDashboardMenuActive] = useState(true);
+    const [dashboardMenuActive, setDashboardMenuActive] = useState(false);
 
     const handleUserMenuActive = (): void => {
         setUserMenuActive(!userMenuActive);
