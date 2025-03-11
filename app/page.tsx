@@ -1,17 +1,14 @@
 import { CirclePowerIcon, TrendingDownIcon, TrendingUpIcon } from "lucide-react";
 import { Input } from "@/components/ui/input"
 
-import Product from "@/components/products/Product";
-import CardList from "@/components/card/CardList";
-import Pagination from "@/components/Pagination";
-import Customer from "@/components/customers/Customer";
-import FilterSortButtons from "@/components/FilterSortButtons";
+import Container from "@/components/Container";
 import Heading from "@/components/Heading";
+
+import CardList from "@/components/card/CardList";
 import SingleStat from "@/components/SingleStat";
 import WeeklyChart from "@/components/temp/WeeklyChart";
 import OrderTypeDonutChart from "@/components/temp/CustomerVSGuest";
 import OverviewTable from "@/components/temp/OverviewOrdersTable";
-import Container from "@/components/Container";
 import OrderStatusChart from "@/components/temp/OrderStatus";
 
 export default function Home() {
@@ -51,29 +48,6 @@ export default function Home() {
         <OverviewTable />
         <OrderStatusChart data={orderStatusData} />
       </Container>
-
-      <form>
-        <Input type="text" id="search" placeholder="Search products" className="py-6 border-none !text-xl shadow-sm bg-white"></Input>
-      </form>
-
-      <Pagination />
-
-      <FilterSortButtons />
-
-      <CardList>
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-      </CardList>
-      <CardList>
-        <Customer />
-        <Customer />
-        <Customer />
-        <Customer />
-        <Customer />
-      </CardList>
     </Container>
   );
 }
