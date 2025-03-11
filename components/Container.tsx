@@ -1,5 +1,4 @@
 
-import { cn } from "@/lib/utils";
 import clsx from "clsx";
 import { JSX } from "react";
 
@@ -14,7 +13,7 @@ interface ContainerProps {
 
 const Container = ({ children, className, style, grow, scroll, as: Tag = "div" }: ContainerProps) => {
     return (
-        <Tag className={clsx(grow && "grow", scroll ? "overflow-y-scroll" : "overflow-y-hidden", 'p-4', className)} style={style}>{children}</Tag>
+        <Tag className={clsx(grow && "grow", scroll ? "overflow-y-scroll" : "overflow-y-hidden", 'p-4 overflow-x-hidden', className)} style={style}>{children}</Tag>
     )
 }
 
