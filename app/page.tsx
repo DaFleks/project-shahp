@@ -4,7 +4,6 @@ import { Input } from "@/components/ui/input"
 import Container from "@/components/Container";
 import Heading from "@/components/Heading";
 
-import CardList from "@/components/card/CardList";
 import SingleStat from "@/components/SingleStat";
 import WeeklyChart from "@/components/temp/WeeklyChart";
 import OrderTypeDonutChart from "@/components/temp/CustomerVSGuest";
@@ -33,14 +32,14 @@ export default function Home() {
   return (
     <Container grow scroll className="space-y-4">
       <Heading type="h3">Today</Heading>
-      <CardList className="grid-cols-2 xl:grid-cols-6">
+      <Container className="!p-0 grid grid-cols-2 gap-4 xl:grid-cols-6">
         <SingleStat icon={<TrendingUpIcon className="size-12 text-emerald-300" />} value="$420,000" title="Sales" />
         <SingleStat icon={<TrendingUpIcon className="size-12 text-emerald-300" />} value="$420,000" title="Profit" />
         <SingleStat icon={<TrendingDownIcon className="size-12 text-rose-300" />} value="64" title="Orders" />
         <SingleStat icon={<TrendingUpIcon className="size-12 text-emerald-300" />} value="$420,000" title="AVO" />
         <SingleStat icon={<TrendingDownIcon className="size-12 text-rose-300" />} value="1254" title="Visitors" />
         <SingleStat icon={<CirclePowerIcon className="size-12 text-emerald-300" />} value="1254" title="Online" />
-      </CardList>
+      </Container>
 
       <Container className="!p-0 grid grid-cols-1 xl:grid-cols-2 gap-4">
         <WeeklyChart data={salesData} />

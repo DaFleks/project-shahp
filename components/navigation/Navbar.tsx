@@ -48,7 +48,7 @@ const Navbar = () => {
               <NavMenuButton
                 key={data._id}
                 className={data.gradient}
-                onClick={handleDashboardMenuActive}
+                handler={handleDashboardMenuActive}
                 title={data.title}
                 icon={data.icon}
                 href={data.href}
@@ -60,7 +60,7 @@ const Navbar = () => {
               <NavMenuButton
                 key={data._id}
                 className={data.gradient}
-                onClick={handleDashboardMenuActive}
+                handler={handleDashboardMenuActive}
                 title={data.title}
                 icon={data.icon}
                 href={data.href}
@@ -72,7 +72,7 @@ const Navbar = () => {
               <NavMenuButton
                 key={data._id}
                 className={data.gradient}
-                onClick={handleDashboardMenuActive}
+                handler={handleDashboardMenuActive}
                 title={data.title}
                 icon={data.icon}
                 href={data.href}
@@ -84,7 +84,7 @@ const Navbar = () => {
               <NavMenuButton
                 key={data._id}
                 className={data.gradient}
-                onClick={handleDashboardMenuActive}
+                handler={handleDashboardMenuActive}
                 title={data.title}
                 icon={data.icon}
                 href={data.href}
