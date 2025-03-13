@@ -14,7 +14,15 @@ const page = async () => {
       <FilterSortButtons />
       <Container className="!p-0 grid grid-cols-1 gap-4">
         {products.map((product: IProduct) => (
-          <Product key={product._id} _id={product._id} name={product.name} sku={product.sku} price={product.sellingPrice} stock={product.stockCount} />
+          <Product
+            key={product._id}
+            _id={product._id}
+            image={product.images[0]}
+            name={product.name}
+            sku={product.sku}
+            price={product.sellingPrice}
+            stock={product.stockCount}
+          />
         ))}
       </Container>
     </Container>

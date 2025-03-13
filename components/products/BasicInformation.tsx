@@ -11,7 +11,7 @@ import Card from "../card/Card";
 import CardContent from "../card/CardContent";
 
 interface BasicInformationProps {
-  image?: string;
+  images: string[];
   name: string;
   sku: string;
   description?: string;
@@ -19,20 +19,22 @@ interface BasicInformationProps {
   brands?: string[];
 }
 
-const BasicInformation = ({ image = "", name, sku, description = "", categories = [""], brands = [""] }: BasicInformationProps) => {
+const BasicInformation = ({ images, name, sku, description = "", categories = [""], brands = [""] }: BasicInformationProps) => {
   return (
     <Card className="!p-0">
       <CardContent>
-        <Carousel className="border-b">
+        <Carousel className="border-b" opts={{ loop: true }}>
           <CarouselContent>
-            <CarouselItem>
-              <Container className="relative w-full h-[16rem] bg-white rounded-t-xl">
-                <Image src={image} alt={name} className="object-contain p-4" fill />
-              </Container>
-            </CarouselItem>
+            {images.map((image: string) => (
+              <CarouselItem key={image}>
+                <Container className="relative w-full h-[16rem] bg-white rounded-t-xl">
+                  <Image src={image} alt={name} className="object-contain p-4" fill />
+                </Container>
+              </CarouselItem>
+            ))}
           </CarouselContent>
-          <CarouselPrevious className="left-0 ml-4" />
-          <CarouselNext className="right-0 mr-4" />
+          <CarouselPrevious className="left-0 ml-8" />
+          <CarouselNext className="right-0 mr-8" />
         </Carousel>
 
         <Container className="space-y-4 text-sm">

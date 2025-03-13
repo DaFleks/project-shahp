@@ -14,10 +14,10 @@ interface ProductProps {
   stock?: number;
 }
 
-const Product = ({ _id, image, name, sku, price, stock }: ProductProps) => {
+const Product = ({ _id, image = "/", name, sku, price, stock }: ProductProps) => {
   return (
     <Card>
-      <CardImage className="rounded-xl" imgClassName="rounded-xl object-contain p-1" />
+      <CardImage src={image} className="rounded-xl" imgClassName="rounded-xl object-contain p-1" />
       <CardContent className="h-32 max-h-32 space-y-4 overflow-hidden flex-col justify-center">
         <p className="font-bold overflow-hidden max-h-12">{name}</p>
         <div>

@@ -27,8 +27,6 @@ import IProduct from "@/types/productTypes";
 import { getProductById } from "@/lib/fetchProducts";
 import formatDate from "@/lib/formatDate";
 
-import picture from "@/public/navi-bg.jpg";
-
 const page = async ({ params }: { params: { _id: string } }) => {
   const product: IProduct = await getProductById(params._id);
   return (
@@ -40,7 +38,7 @@ const page = async ({ params }: { params: { _id: string } }) => {
         Basic Information
       </Heading>
       <BasicInformation
-        image={picture.src}
+        images={product.images}
         name={product.name}
         sku={product.sku}
         description={product.description}
