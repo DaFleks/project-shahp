@@ -14,6 +14,13 @@ module.exports = {
         pathname: "/images/**",
         search: "",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.thegamesdb.net",
+        port: "",
+        pathname: "/images/**",
+        search: "",
+      },
     ],
   },
 };

@@ -14,7 +14,7 @@ export async function GET(req: Request, { params }: Params) {
   // Connect to MongoDB
   await connectDB();
   try {
-    const { _id } = params;
+    const { _id } = await params;
 
     // Validate ObjectId
     if (!_id.match(/^[0-9a-fA-F]{24}$/)) {

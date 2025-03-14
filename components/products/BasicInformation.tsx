@@ -33,8 +33,8 @@ const BasicInformation = ({ images, name, sku, description = "", categories = ["
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-0 ml-8" />
-          <CarouselNext className="right-0 mr-8" />
+          <CarouselPrevious className="left-0 ml-10" />
+          <CarouselNext className="right-0 mr-10" />
         </Carousel>
 
         <Container className="space-y-4 text-sm">

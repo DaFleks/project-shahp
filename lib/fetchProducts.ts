@@ -1,13 +1,16 @@
 import IProduct from "../types/productTypes";
 
 // Utility function to fetch products from the API
-export async function fetchProducts(): Promise<unknown> {
+export async function fetchProducts({ q }: { q: string }): Promise<unknown> {
   try {
-    const response = await fetch("http://localhost:3000/api/products"); // Your API endpoint
+    const response = await fetch(`http://localhost:3000/api/products?q=${q ? q : ""}`); // Your API endpoint
+
     if (!response.ok) {
       throw new Error("Failed to fetch products");
     }
+
     const data = await response.json(); // Parse the response as JSON
+
     return data as [IProduct]; // Return the fetched data
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

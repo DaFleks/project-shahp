@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-slate-900">
       <body translate="no"
-        className={`${comfortaa.className} antialiased bg-gradient-to-tr from-slate-200 to-white flex-col overflow-y-hidden`}
+        className={`${comfortaa.className} antialiased bg-gradient-to-tr from-slate-200 to-white flex-col overflow-y-hidden xl:w-1/4 mx-auto`}
       >
         <Navigation />
         {children}
