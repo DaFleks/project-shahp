@@ -1,17 +1,28 @@
-import IProduct from "../types/productTypes";
+import IProduct from "@/types/productTypes";
+interface FetchProductsResponse {
+  data: {
+    products: IProduct[];
+    currentPage: string;
+    totalPages: string;
+  };
+}
 
 // Utility function to fetch products from the API
-export async function fetchProducts({ q }: { q: string }): Promise<unknown> {
-  try {
-    const response = await fetch(`http://localhost:3000/api/products?q=${q ? q : ""}`); // Your API endpoint
+export async function fetchProducts({ q, p }: { q: string; p: string }): Promise<FetchProductsResponse> {
+  const query = q ? q : "";
+  const page = p ? p : "1";
 
+  try {
+    const response = await fetch(`http://localhost:3000/api/products?q=${query}&p=${page}`); // Your API endpoint
     if (!response.ok) {
       throw new Error("Failed to fetch products");
     }
 
-    const data = await response.json(); // Parse the response as JSON
+    // Parse the response as JSON
+    const data = await response.json();
 
-    return data as [IProduct]; // Return the fetched data
+    // Return the fetched data
+    return { data: { products: data.products, currentPage: data.currentPage.toString(), totalPages: data.totalPages.toString() } };
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {

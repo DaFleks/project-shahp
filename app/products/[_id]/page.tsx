@@ -31,10 +31,10 @@ import ProductForm from "@/components/products/ProductForm";
 const page = async ({ params }: { params: { _id: string } }) => {
   const { _id } = await params;
   const product: IProduct = await getProductById(_id);
-  
+
   return (
     <>
-      {/* <Container scroll className="space-y-12 pb-12">
+      <Container scroll className="space-y-12 pb-12">
         <Heading type="h4" className="font-bold mb-4">
           Basic Information
         </Heading>
@@ -116,13 +116,32 @@ const page = async ({ params }: { params: { _id: string } }) => {
           <SingleStat icon={<TagIcon className="size-6" />} title="Width" value={`${product.dimensions[0].width}cm `} />
           <SingleStat icon={<TagIcon className="size-6" />} title="Weight" value={`${product.dimensions[0].weight} lbs`} />
         </Container>
+
+        <Heading type="h4" className="font-bold mb-4">
+          Metadata
+        </Heading>
+        <Container className="!p-0 grid grid-cols-2 gap-4">
+          <SingleStat
+            className="col-span-2"
+            icon={<Calendar1Icon className="size-6" />}
+            title="Last Updated"
+            value={`${formatDate(product.updatedAt)}`}
+          />
+          <SingleStat
+            className="col-span-2"
+            icon={<Calendar1Icon className="size-6" />}
+            title="Date Added"
+            value={`${formatDate(product.createdAt)}`}
+          />
+        </Container>
+
         <Button className="fixed bottom-4 right-4 w-[4rem] h-[4rem] rounded-xl">
           <Edit2Icon className="size-8" />
         </Button>
-      </Container> */}
-      <Container scroll>
-        <ProductForm initialProduct={product} />
       </Container>
+      {/* <Container scroll>
+        <ProductForm initialProduct={product} />
+      </Container> */}
     </>
   );
 };
