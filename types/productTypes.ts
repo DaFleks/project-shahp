@@ -45,4 +45,12 @@ export interface Review {
   comment?: string;
 }
 
+export interface FetchProductsResponse {
+  products: IProduct[];
+  currentPage: string;
+  totalPages: string;
+  status: number;
+  error: unknown;
+}
+
 export default IProduct;
