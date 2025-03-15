@@ -52,19 +52,19 @@ const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
 
   return (
     <Container className="!p-0 grid grid-cols-5 gap-4 justify-between">
-      <Button className="font-bold" onClick={handleFirstPage}>
+      <Button onClick={handleFirstPage}>
         <ChevronsLeftIcon />
       </Button>
-      <Button className="font-bold" onClick={handlePreviousPage}>
+      <Button onClick={handlePreviousPage}>
         <ChevronLeftIcon />
       </Button>
       <p className="flex items-center justify-center font-bold">
         {currentPage} / {totalPages}
       </p>
-      <Button className="font-bold" onClick={handleNextPage}>
+      <Button onClick={handleNextPage}>
         <ChevronRightIcon />
       </Button>
-      <Button className="font-bold" onClick={handleLastPage}>
+      <Button onClick={handleLastPage}>
         <ChevronsRightIcon />
       </Button>
     </Container>

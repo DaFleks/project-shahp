@@ -1,5 +1,4 @@
 import { CirclePowerIcon, TrendingDownIcon, TrendingUpIcon } from "lucide-react";
-import { Input } from "@/components/ui/input"
 
 import Container from "@/components/Container";
 import Heading from "@/components/Heading";

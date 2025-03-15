@@ -1,13 +1,15 @@
+import { PackagePlusIcon } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+
+import IProduct from "@/types/productTypes";
+import { fetchProducts } from "@/lib/fetchProducts";
+
 import Container from "@/components/Container";
 import FilterSortButtons from "@/components/FilterSortButtons";
 import Pagination from "@/components/Pagination";
 import Product from "@/components/products/Product";
 import SearchInput from "@/components/SearchInput";
-import { Button } from "@/components/ui/button";
-import { fetchProducts } from "@/lib/fetchProducts";
-import IProduct from "@/types/productTypes";
-import { PackagePlusIcon } from "lucide-react";
-import React from "react";
 
 const page = async ({ searchParams }: { searchParams: Promise<{ q: string; p: string }> }) => {
   const params = await searchParams;

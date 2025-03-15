@@ -1,20 +1,29 @@
 "use client";
 
-import { FilterIcon, SortAscIcon } from "lucide-react";
+import { useState } from "react";
+
+import { FilterIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import Container from "./Container";
+
+import Card from "./card/Card";
+import Heading from "./Heading";
 
 const FilterSortButtons = () => {
+  const [showFilters, setShowFilters] = useState(false);
+
+  const handleShowFilters = () => {
+    setShowFilters(!showFilters);
+  };
   return (
     <div className="grid grid-cols-2 gap-4">
-      <Button className="font-bold">
+      <Button className="font-bold" onClick={handleShowFilters}>
         <FilterIcon />
         Filters
       </Button>
 
-      <Select>
-        <SelectTrigger className="w-full bg-white !py-2 font-bold" value="date:desc">
+      <Select value="date:desc">
+        <SelectTrigger className="w-full bg-white !py-2 font-bold">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
@@ -28,6 +37,13 @@ const FilterSortButtons = () => {
           <SelectItem value="date:desc">Date Desc.</SelectItem>
         </SelectContent>
       </Select>
+      {showFilters && (
+        <Card className="col-span-full">
+          <Heading type="h6" className="font-bold">
+            Filters
+          </Heading>
+        </Card>
+      )}
     </div>
   );
 };
