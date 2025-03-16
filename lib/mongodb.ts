@@ -25,17 +25,17 @@ const cached: MongooseCache = globalWithMongoose.mongoose || { conn: null, promi
  * - Uses a cached connection if available
  * - Prevents multiple connections in development
  */
-export async function connectDB(): Promise<Mongoose> {
+export async function connectDB() {
   // If a cached connection exists, return it
   if (cached.conn) return cached.conn;
 
   // If no connection exists, create a new one and store the promise
   if (!cached.promise) cached.promise = mongoose.connect(MONGODB_URI, {}).then((mongoose) => mongoose);
 
-  // Wait for the connection to be established
+  // // Wait for the connection to be established
   cached.conn = await cached.promise;
 
-  // Store the connection globally to reuse it
+  // // Store the connection globally to reuse it
   globalWithMongoose.mongoose = cached;
 
   // Return the database connection

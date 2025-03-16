@@ -35,11 +35,11 @@ const ProductViewEdit = ({ product }: { product: IProduct }) => {
   };
 
   return (
-    <Container scroll>
+    <Container scroll className="pb-24">
       {editMode ? (
         <ProductForm initialProduct={product} />
       ) : (
-        <Container className="!p-0 space-y-12 pb-12">
+        <Container className="!p-0 space-y-12">
           <Heading type="h4" className="font-bold mb-4">
             Basic Information
           </Heading>

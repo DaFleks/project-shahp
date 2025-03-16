@@ -6,6 +6,9 @@ const MAX_PRODUCTS_PER_PAGE = 20;
 
 export async function GET(request: NextRequest): Promise<NextResponse> {
   try {
+    // Connect to MongoDB (reuses cached connection)
+    await connectDB();
+
     //  Search input
     const searchParams = request.nextUrl.searchParams;
     const query = searchParams.get("q");
@@ -15,9 +18,6 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     const offset = (page - 1) * MAX_PRODUCTS_PER_PAGE;
     const totalProducts = await Product.countDocuments({ name: { $regex: query, $options: "i" } }); // Total items
     const totalPages = Math.ceil(totalProducts / MAX_PRODUCTS_PER_PAGE); // Total pages
-
-    // Connect to MongoDB (reuses cached connection)
-    await connectDB();
 
     // Fetch all products from MongoDB
     const products = await Product.find({ name: { $regex: query, $options: "i" } })
