@@ -11,7 +11,16 @@ import Pagination from "@/components/Pagination";
 import Product from "@/components/products/Product";
 import SearchInput from "@/components/SearchInput";
 
-const page = async ({ searchParams }: { searchParams: Promise<{ q: string; p: string }> }) => {
+interface SearchParamsProps {
+  q: string;
+  p: string;
+  active: string;
+  stock: string;
+  featured: string;
+  sale: string;
+}
+
+const page = async ({ searchParams }: { searchParams: Promise<SearchParamsProps> }) => {
   const params = await searchParams;
   const { products, currentPage, totalPages, error, status } = await fetchProducts(params);
 

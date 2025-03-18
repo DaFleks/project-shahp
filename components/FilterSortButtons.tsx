@@ -7,7 +7,8 @@ import { Button } from "./ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 import Card from "./card/Card";
-import Heading from "./Heading";
+import { Switch } from "./ui/switch";
+import { Table, TableBody, TableCell, TableRow } from "./ui/table";
 
 const FilterSortButtons = () => {
   const [showFilters, setShowFilters] = useState(false);
@@ -39,9 +40,34 @@ const FilterSortButtons = () => {
       </Select>
       {showFilters && (
         <Card className="col-span-full">
-          <Heading type="h6" className="font-bold">
-            Filters
-          </Heading>
+          <Table className="font-bold">
+            <TableBody>
+              <TableRow>
+                <TableCell className="w-full">Active</TableCell>
+                <TableCell className="w-fit">
+                  <Switch />
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="w-full">Featured</TableCell>
+                <TableCell className="w-fit">
+                  <Switch />
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="w-full">On Sale</TableCell>
+                <TableCell className="w-fit">
+                  <Switch />
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="w-full">In Stock</TableCell>
+                <TableCell className="w-fit">
+                  <Switch />
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
         </Card>
       )}
     </div>

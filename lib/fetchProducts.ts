@@ -1,14 +1,32 @@
 import { FetchProductsResponse } from "@/types/productTypes";
 
 // Utility function to fetch products from the API
-export async function fetchProducts({ q, p }: { q: string; p: string }): Promise<FetchProductsResponse> {
-  const query = q ? q : "";
-  const page = p ? p : "1";
 
+interface FetchProductsProps {
+  q: string;
+  p: string;
+  active: string;
+  stock: string;
+  featured: string;
+  sale: string;
+}
+
+export async function fetchProducts({
+  q = "",
+  p = "1",
+  active = "",
+  stock = "",
+  featured = "",
+  sale = "",
+}: FetchProductsProps): Promise<FetchProductsResponse> {
   let data: FetchProductsResponse;
 
   try {
-    const response = await fetch(`http://localhost:3000/api/products?q=${query}&p=${page}`); // Your API endpoint
+    const url = `http://localhost:3000/api/products?q=${q}&p=${p}&active=${active}&stock=${stock}&featured=${featured}&sale=${sale}`;
+
+    console.log("\n\n" + url + "\n\n");
+
+    const response = await fetch(url); // Your API endpoint
 
     if (response.ok) {
       // Parse the response as JSON

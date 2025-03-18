@@ -9,6 +9,7 @@ const productSchema = new Schema(
     brands: [{ type: String, required: true }],
     sku: { type: String, required: true, unique: true },
     description: String,
+    isActive: { type: Boolean, default: false, required: true },
     isFeatured: { type: Boolean, default: false },
     onSale: { type: Boolean, default: false },
     costPrice: Number,
