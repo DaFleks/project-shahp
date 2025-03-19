@@ -32,7 +32,6 @@ const page = async ({ searchParams }: { searchParams: Promise<SearchParamsProps>
     <Container className="flex-col gap-4 h-full">
       <Container className="!p-0 space-y-4 min-h-fit">
         <SearchInput />
-        <Pagination currentPage={currentPage} totalPages={totalPages} />
         <FilterSortButtons />
       </Container>
 
@@ -56,9 +55,12 @@ const page = async ({ searchParams }: { searchParams: Promise<SearchParamsProps>
           <p className="text-center font-bold">No Products!</p>
         )}
 
-        <Button className="fixed bottom-4 right-4 w-[4rem] h-[4rem] rounded-xl">
+        <Button className="fixed bottom-18 right-4 w-[4rem] h-[4rem] rounded-xl">
           <PackagePlusIcon className="size-8" />
         </Button>
+      </Container>
+      <Container className="!p-0 min-h-fit">
+        <Pagination currentPage={currentPage} totalPages={totalPages} />
       </Container>
     </Container>
   );
