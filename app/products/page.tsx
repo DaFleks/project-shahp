@@ -10,6 +10,7 @@ import FilterSortButtons from "@/components/FilterSortButtons";
 import Pagination from "@/components/Pagination";
 import Product from "@/components/products/Product";
 import SearchInput from "@/components/SearchInput";
+import ThreeSwitch from "@/components/ThreeSwitch";
 
 interface SearchParamsProps {
   q: string;

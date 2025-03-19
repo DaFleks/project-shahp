@@ -7,13 +7,13 @@ import { useDebouncedCallback } from "use-debounce";
 
 const SearchInput = () => {
   const searchParams = useSearchParams();
-  const search = new URLSearchParams(searchParams);
+  const params = new URLSearchParams(searchParams);
   const pathname = usePathname();
   const { replace } = useRouter();
 
   const handleChange = useDebouncedCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    search?.set("q", e.target.value);
-    replace(`${pathname}?${search.toString()}`);
+    params?.set("q", e.target.value);
+    replace(`${pathname}?${params.toString()}`);
   }, 100);
 
   return (
