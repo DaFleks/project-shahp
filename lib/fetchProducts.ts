@@ -9,6 +9,8 @@ interface FetchProductsProps {
   stock: string;
   featured: string;
   sale: string;
+  sort: string;
+  order: string;
 }
 
 export async function fetchProducts({
@@ -18,11 +20,13 @@ export async function fetchProducts({
   stock = "",
   featured = "",
   sale = "",
+  sort = "",
+  order = "",
 }: FetchProductsProps): Promise<FetchProductsResponse> {
   let data: FetchProductsResponse;
 
   try {
-    const url = `http://localhost:3000/api/products?q=${q}&p=${p}&active=${active}&stock=${stock}&featured=${featured}&sale=${sale}`;
+    const url = `http://localhost:3000/api/products?q=${q}&p=${p}&active=${active}&stock=${stock}&featured=${featured}&sale=${sale}&sort=${sort}&order=${order}`;
 
     console.log("\n\n" + url + "\n\n");
 

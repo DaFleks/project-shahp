@@ -33,7 +33,7 @@ const FilterSortButtons = () => {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const [showFilters, setShowFilters] = useState(true);
+  const [showFilters, setShowFilters] = useState(false);
   const [filters, setFilters] = useState(filterData);
 
   const handleShowFilters = () => {
@@ -61,11 +61,17 @@ const FilterSortButtons = () => {
 
   const handleClearFilters = () => {
     params.forEach((_, key) => {
-      params.delete(key);
+      if (key !== "sort" && key !== "order") params.delete(key);
     });
 
     setFilters((prevFilters) => prevFilters.map((filter) => ({ ...filter, state: SwitchState.NEUTRAL })));
-    replace(`${pathname}`);
+    replace(`${pathname}?${params.toString()}`);
+  };
+
+  const handleSort = (value: string) => {
+    params.set("sort", value.split(":")[0]);
+    params.set("order", value.split(":")[1]);
+    replace(`${pathname}?${params.toString()}`);
   };
 
   return (
@@ -75,19 +81,19 @@ const FilterSortButtons = () => {
         Filters
       </Button>
 
-      <Select value="date:desc">
+      <Select defaultValue="createdAt:asc" onValueChange={handleSort}>
         <SelectTrigger className="w-full bg-white !py-2 font-bold">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="title:asc">Title Asc.</SelectItem>
-          <SelectItem value="title:desc">Title Desc.</SelectItem>
+          <SelectItem value="name:asc">Name Asc.</SelectItem>
+          <SelectItem value="name:desc">Name Desc.</SelectItem>
           <SelectItem value="sku:asc">SKU Asc.</SelectItem>
           <SelectItem value="sku:desc">SKU Desc.</SelectItem>
-          <SelectItem value="price:asc">Price Asc.</SelectItem>
-          <SelectItem value="price:desc">Price Desc.</SelectItem>
-          <SelectItem value="date:asc">Date Asc.</SelectItem>
-          <SelectItem value="date:desc">Date Desc.</SelectItem>
+          <SelectItem value="sellingPrice:asc">Price Asc.</SelectItem>
+          <SelectItem value="sellingPrice:desc">Price Desc.</SelectItem>
+          <SelectItem value="createdAt:asc">Date Asc.</SelectItem>
+          <SelectItem value="createdAt:desc">Date Desc.</SelectItem>
         </SelectContent>
       </Select>
 
