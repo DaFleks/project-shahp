@@ -10,8 +10,10 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     // Connect to MongoDB (reuses cached connection)
     await connectDB();
 
+    //  Params provided by the URL
     const searchParams = request.nextUrl.searchParams;
 
+    //  Responsible for searching by name or SKU & filtering
     const queryOptions = {
       $or: [{ name: { $regex: searchParams.get("q"), $options: "i" } }, { sku: { $regex: searchParams.get("q"), $options: "i" } }],
       ...(searchParams.get("active") && { isActive: searchParams.get("active") === "true" ? true : false }),

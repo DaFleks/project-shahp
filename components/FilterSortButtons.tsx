@@ -20,18 +20,27 @@ enum SwitchState {
   ON = "ON",
 }
 
-const filterData = [
-  { _id: 0, name: "Active", param: "active", state: SwitchState.NEUTRAL },
-  { _id: 2, name: "Featured", param: "featured", state: SwitchState.NEUTRAL },
-  { _id: 4, name: "On Sale", param: "sale", state: SwitchState.NEUTRAL },
-  { _id: 6, name: "In Stock", param: "stock", state: SwitchState.NEUTRAL },
-];
+const checkState = (value: string): SwitchState => {
+  let state = SwitchState.NEUTRAL;
+
+  if (value === "true") state = SwitchState.ON;
+  if (value === "false") state = SwitchState.OFF;
+
+  return state;
+};
 
 const FilterSortButtons = () => {
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams);
   const pathname = usePathname();
   const { replace } = useRouter();
+
+  const filterData = [
+    { _id: 0, name: "Active", param: "active", state: checkState(params.get("active") as string) },
+    { _id: 2, name: "Featured", param: "featured", state: checkState(params.get("featured") as string) },
+    { _id: 4, name: "On Sale", param: "sale", state: checkState(params.get("sale") as string) },
+    { _id: 6, name: "In Stock", param: "stock", state: checkState(params.get("stock") as string) },
+  ];
 
   const [showFilters, setShowFilters] = useState(false);
   const [filters, setFilters] = useState(filterData);
@@ -60,9 +69,11 @@ const FilterSortButtons = () => {
   };
 
   const handleClearFilters = () => {
-    params.forEach((_, key) => {
-      if (key !== "sort" && key !== "order") params.delete(key);
-    });
+    //  Did it this way as the forEach wasn't clearing all the params, my guess is replace() was being called before the loop could finish.
+    params.delete("active");
+    params.delete("featured");
+    params.delete("sale");
+    params.delete("stock");
 
     setFilters((prevFilters) => prevFilters.map((filter) => ({ ...filter, state: SwitchState.NEUTRAL })));
     replace(`${pathname}?${params.toString()}`);
@@ -81,7 +92,7 @@ const FilterSortButtons = () => {
         Filters
       </Button>
 
-      <Select defaultValue="createdAt:asc" onValueChange={handleSort}>
+      <Select defaultValue={`${params.get("sort") ? `${params.get("sort")}:${params.get("order")}` : "createdAt:asc"}`} onValueChange={handleSort}>
         <SelectTrigger className="w-full bg-white !py-2 font-bold">
           <SelectValue />
         </SelectTrigger>
