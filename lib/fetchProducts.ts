@@ -28,8 +28,6 @@ export async function fetchProducts({
   try {
     const url = `http://localhost:3000/api/products?q=${q}&p=${p}&active=${active}&stock=${stock}&featured=${featured}&sale=${sale}&sort=${sort}&order=${order}`;
 
-    console.log("\n\n" + url + "\n\n");
-
     const response = await fetch(url); // Your API endpoint
 
     if (response.ok) {

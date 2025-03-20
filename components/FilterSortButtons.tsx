@@ -13,6 +13,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import CardContent from "./card/CardContent";
 import clsx from "clsx";
+import Container from "./Container";
 
 enum SwitchState {
   OFF = "OFF",
@@ -86,7 +87,7 @@ const FilterSortButtons = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <Container className="!p-0 grid grid-cols-2 gap-4">
       <Button className={clsx(showFilters ? "bg-neutral-700/90" : "bg-neutral-700", "font-bold")} onClick={handleShowFilters}>
         <FilterIcon />
         Filters
@@ -154,7 +155,7 @@ const FilterSortButtons = () => {
           </CardContent>
         </Card>
       )}
-    </div>
+    </Container>
   );
 };
 

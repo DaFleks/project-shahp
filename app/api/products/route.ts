@@ -10,6 +10,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     // Connect to MongoDB (reuses cached connection)
     await connectDB();
 
+
     //  Params provided by the URL
     const searchParams = request.nextUrl.searchParams;
 
