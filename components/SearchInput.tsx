@@ -19,7 +19,7 @@ const SearchInput = () => {
   return (
     <Input
       type="text"
-      className="bg-white shadow-md py-6"
+      className="bg-white shadow py-6"
       placeholder="Search by Name or SKU"
       defaultValue={searchParams.get("q")?.toString()}
       onChange={handleChange}

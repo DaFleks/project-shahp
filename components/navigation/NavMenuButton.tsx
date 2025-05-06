@@ -9,10 +9,10 @@ interface NavMenuButtonProps {
   className?: string;
   title?: string;
   icon?: React.ReactNode;
-  handler?: () => void;
+  overlayToggle?: () => void;
 }
 
-const NavMenuButton = ({ href = "/", icon, className, title, handler = () => {} }: NavMenuButtonProps) => {
+const NavMenuButton = ({ href = "/", icon, className, title, overlayToggle = () => {} }: NavMenuButtonProps) => {
   const router = useRouter();
   const pathname = usePathname(); // Detects when route changes
   const [loading, setLoading] = useState(false);
@@ -26,7 +26,7 @@ const NavMenuButton = ({ href = "/", icon, className, title, handler = () => {} 
   useEffect(() => {
     if (loading) {
       setLoading(false);
-      handler();
+      overlayToggle();
     }
   }, [pathname]);
 

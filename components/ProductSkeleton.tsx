@@ -7,7 +7,7 @@ import { Skeleton } from "./ui/skeleton";
 
 const ProductSkeleton = () => {
   return (
-    <Card>
+    <Card className="h-36">
       <CardContent className="flex items-center gap-4">
         <Container className="!p-0 min-w-fit">
           <Skeleton className="bg-neutral-300 w-20 aspect-square rounded-full" />

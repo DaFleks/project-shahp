@@ -8,24 +8,20 @@ import Container from "../Container";
 import NavBrand from "./NavBrand";
 import NavButton from "./NavButton";
 
-import NavOverlay from "./NavOverlay";
-import NavSection from "./NavSection";
-import NavMenuButton from "./NavMenuButton";
+import NavMenu from "./NavMenu";
 
 import UserMenuAvatar from "./UserMenuAvatar";
 
-import navMenuData from "./NavMenuData";
-
 const Navbar = () => {
   const [userMenuActive, setUserMenuActive] = useState(false);
-  const [dashboardMenuActive, setDashboardMenuActive] = useState(false);
+  const [showNavMenu, setShowNavMenu] = useState(false);
 
   const handleUserMenuActive = (): void => {
     setUserMenuActive((prevState) => !prevState);
   };
 
-  const handleDashboardMenuActive = (): void => {
-    setDashboardMenuActive((prevState) => !prevState);
+  const handleNavMenu = (): void => {
+    setShowNavMenu((prevState) => !prevState);
   };
 
   return (
@@ -36,69 +32,12 @@ const Navbar = () => {
           <NavBrand brand={<ShoppingBagIcon className="size-6" />} title="Shahp" />
           <Container className="!p-0 flex items-center gap-12">
             <NavButton icon={<UserCircle2Icon className="size-6" />} onClick={handleUserMenuActive} />
-            <NavButton icon={<MenuSquareIcon className="size-6" />} onClick={handleDashboardMenuActive} />
+            <NavButton icon={<MenuSquareIcon className="size-6" />} onClick={handleNavMenu} />
           </Container>
         </Container>
       </Container>
 
-      {dashboardMenuActive && (
-        <NavOverlay title="Navigation" onClick={handleDashboardMenuActive}>
-          <NavSection className="grid-cols-4 gap-4" title="Overview">
-            {navMenuData.slice(0, 1).map((data) => (
-              <NavMenuButton
-                key={data._id}
-                className={data.gradient}
-                handler={handleDashboardMenuActive}
-                title={data.title}
-                icon={data.icon}
-                href={data.href}
-              />
-            ))}
-          </NavSection>
-          <NavSection className="grid-cols-4 gap-4" title="Data Management">
-            {navMenuData.slice(1, 5).map((data) => (
-              <NavMenuButton
-                key={data._id}
-                className={data.gradient}
-                handler={handleDashboardMenuActive}
-                title={data.title}
-                icon={data.icon}
-                href={data.href}
-              />
-            ))}
-          </NavSection>
-          <NavSection className="grid-cols-4 gap-4" title="Analytics">
-            {navMenuData.slice(5, 11).map((data) => (
-              <NavMenuButton
-                key={data._id}
-                className={data.gradient}
-                handler={handleDashboardMenuActive}
-                title={data.title}
-                icon={data.icon}
-                href={data.href}
-              />
-            ))}
-          </NavSection>
-          <NavSection className="grid-cols-4 gap-4" title="Settings & Configuration">
-            {navMenuData.slice(11, 14).map((data) => (
-              <NavMenuButton
-                key={data._id}
-                className={data.gradient}
-                handler={handleDashboardMenuActive}
-                title={data.title}
-                icon={data.icon}
-                href={data.href}
-              />
-            ))}
-          </NavSection>
-        </NavOverlay>
-      )}
-
-      {userMenuActive && (
-        <NavOverlay title="User Menu" onClick={handleUserMenuActive}>
-          <UserMenuAvatar />
-        </NavOverlay>
-      )}
+      <NavMenu show={showNavMenu} title="Navigation" toggleMenu={handleNavMenu} />
     </>
   );
 };
