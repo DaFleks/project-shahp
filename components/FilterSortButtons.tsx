@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { AnimatePresence, motion } from "motion/react";
+
 import { CheckCircle, EllipsisIcon, SquareXIcon, FilterIcon, XCircleIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -86,6 +88,8 @@ const FilterSortButtons = () => {
     replace(`${pathname}?${params.toString()}`);
   };
 
+  const MotionCard = motion.create(Card);
+
   return (
     <Container className="!p-0 grid grid-cols-2 gap-4">
       <Button className={clsx(showFilters ? "bg-neutral-700/90" : "bg-neutral-700", "font-bold")} onClick={handleShowFilters}>
@@ -109,52 +113,60 @@ const FilterSortButtons = () => {
         </SelectContent>
       </Select>
 
-      {showFilters && (
-        <Card className="col-span-full">
-          <CardContent className="space-y-4">
-            <Table className="font-bold">
-              <TableBody>
-                {filters.map((filter) => (
-                  <TableRow key={filter._id}>
-                    <TableCell className="w-full">{filter.name}</TableCell>
-                    <TableCell className="w-fit">
-                      <ToggleGroup
-                        type="single"
-                        onValueChange={(value: string) => {
-                          handleFilterChange(filter.param, value);
-                        }}>
-                        <ToggleGroupItem
-                          value="false"
-                          aria-label="Toggle bold"
-                          className={clsx(filter.state === SwitchState.OFF ? "!bg-neutral-100" : "!bg-white")}>
-                          <XCircleIcon className="text-red-700" />
-                        </ToggleGroupItem>
-                        <ToggleGroupItem
-                          value="-"
-                          aria-label="Toggle italic"
-                          className={clsx(filter.state === SwitchState.NEUTRAL ? "!bg-neutral-100" : "!bg-white")}>
-                          <EllipsisIcon />
-                        </ToggleGroupItem>
-                        <ToggleGroupItem
-                          value="true"
-                          aria-label="Toggle underline"
-                          className={clsx(filter.state === SwitchState.ON ? "!bg-neutral-100" : "!bg-white")}>
-                          <CheckCircle className="text-emerald-700" />
-                        </ToggleGroupItem>
-                      </ToggleGroup>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+      <AnimatePresence>
+        {showFilters && (
+          <MotionCard
+            className="col-span-full bg-white overflow-y-hidden"
+            initial={{ height: 0, opacity: 0, padding: "0rem" }}
+            animate={{ height: "auto", opacity: 1, padding: "1rem 1rem" }}
+            exit={{ height: 0, padding: 0 }}
+            transition={{ duration: 0.25, ease: "linear" }}
+            key="wat">
+            <CardContent className="space-y-4">
+              <Table className="font-bold">
+                <TableBody>
+                  {filters.map((filter) => (
+                    <TableRow key={filter._id}>
+                      <TableCell className="w-full">{filter.name}</TableCell>
+                      <TableCell className="w-fit">
+                        <ToggleGroup
+                          type="single"
+                          onValueChange={(value: string) => {
+                            handleFilterChange(filter.param, value);
+                          }}>
+                          <ToggleGroupItem
+                            value="false"
+                            aria-label="Toggle bold"
+                            className={clsx(filter.state === SwitchState.OFF ? "!bg-neutral-100" : "!bg-white")}>
+                            <XCircleIcon className="text-red-700" />
+                          </ToggleGroupItem>
+                          <ToggleGroupItem
+                            value="-"
+                            aria-label="Toggle italic"
+                            className={clsx(filter.state === SwitchState.NEUTRAL ? "!bg-neutral-100" : "!bg-white")}>
+                            <EllipsisIcon />
+                          </ToggleGroupItem>
+                          <ToggleGroupItem
+                            value="true"
+                            aria-label="Toggle underline"
+                            className={clsx(filter.state === SwitchState.ON ? "!bg-neutral-100" : "!bg-white")}>
+                            <CheckCircle className="text-emerald-700" />
+                          </ToggleGroupItem>
+                        </ToggleGroup>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
 
-            <Button className="w-full font-bold" onClick={handleClearFilters}>
-              <SquareXIcon />
-              Clear Filters
-            </Button>
-          </CardContent>
-        </Card>
-      )}
+              <Button className="w-full font-bold" onClick={handleClearFilters}>
+                <SquareXIcon />
+                Clear Filters
+              </Button>
+            </CardContent>
+          </MotionCard>
+        )}
+      </AnimatePresence>
     </Container>
   );
 };
