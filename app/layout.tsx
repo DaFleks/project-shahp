@@ -4,6 +4,7 @@ import AppSidebar from "@/components/AppSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
 import { Nunito_Sans } from "next/font/google";
+import Navbar from "@/components/Navbar";
 
 const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
@@ -25,7 +26,11 @@ export default function RootLayout({
         <SidebarProvider defaultOpen>
           <AppSidebar />
         </SidebarProvider>
-        <div className="h-full w-full bg-neutral-100">{children}</div>
+
+        <div className="h-full w-full bg-white">
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   );

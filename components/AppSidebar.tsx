@@ -5,16 +5,23 @@ import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarTrigger }
 import { dashboard, orders, products, customers, utilities } from "../lib/MenuItems";
 import AppSidebarGroup from "./AppSidebarGroup";
 import { Button } from "./ui/button";
+import { Flame } from "lucide-react";
+import Link from "next/link";
 
 const AppSidebar = () => {
   return (
     <>
       <Sidebar className="font-semibold" collapsible="icon">
-        {/* <SidebarHeader className="p-4 border">
+        <SidebarHeader className="p-4 select-none">
           <SidebarContent>
-            <SidebarTrigger />
+            {/* <SidebarTrigger /> */}
+
+            <Link href="#" className="flex gap-1">
+              <Flame />
+              <h6 className="text-xl font-bold">Shahp</h6>
+            </Link>
           </SidebarContent>
-        </SidebarHeader> */}
+        </SidebarHeader>
         <SidebarContent>
           <AppSidebarGroup label="Dashboard" items={dashboard}></AppSidebarGroup>
           <AppSidebarGroup label="Orders" items={orders}></AppSidebarGroup>
@@ -22,9 +29,9 @@ const AppSidebar = () => {
           <AppSidebarGroup label="Customers" items={customers}></AppSidebarGroup>
           <AppSidebarGroup label="Utilities" items={utilities}></AppSidebarGroup>
         </SidebarContent>
-        <SidebarFooter>
+        {/* <SidebarFooter>
           <Button className="cursor-pointer">Log Out</Button>
-        </SidebarFooter>
+        </SidebarFooter> */}
       </Sidebar>
     </>
   );
