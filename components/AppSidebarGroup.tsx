@@ -12,7 +12,7 @@ interface AppSidebarGroupProps {
 const AppSidebarGroup = ({ label, items }: AppSidebarGroupProps) => {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>{label}</SidebarGroupLabel>
+      <SidebarGroupLabel className="text-white">{label}</SidebarGroupLabel>
       <SidebarGroupContent>
         <SidebarMenu>
           {items.map((item) => (
